@@ -15,7 +15,6 @@ int main(){
 	  int amount;
 	  int totalbill=0;
       char ch;
-      char order_name[100];
       Menu();
   do
   {
