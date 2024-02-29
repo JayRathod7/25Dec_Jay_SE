@@ -15,6 +15,7 @@ main(){
 	lenth = strlen(ch);
 	for(i;i<lenth;i++){
 		if(ch[i]==' '){
+			ch[i]= 0;
 			printf("\n");
 		}
 		printf("%c",ch[i]);
