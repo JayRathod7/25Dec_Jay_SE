@@ -1,17 +1,21 @@
-#include<stdio.h>
-main()
-{
-	int i;
-	int values[5];
-	
-	printf("Enter Any Number : \n");
-	for(i=1; i<=3; i++)
-	{
-		scanf("%d", &values[i]);
-	}
-	
-	for (i=5; i>=1; i--)
-	{
-		printf("%d", values[i]);
-	}
+#include <stdio.h>
+
+int main() {
+
+  int n;
+  int reverse = 0;
+  int remainder;
+
+  printf("Enter an integer: ");
+  scanf("%d", &n);
+
+   while (n != 0) {
+    remainder = n % 10;
+    reverse = reverse * 10 + remainder;
+    n /= 10;
+  }
+
+  printf("Reversed number: %d", reverse);
+
+  return 0;
 }

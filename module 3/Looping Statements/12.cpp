@@ -1,4 +1,5 @@
 #include<stdio.h>  
+#include<math.h>
 
 
 main(){
@@ -8,9 +9,14 @@ main(){
 	int sum=0;
 	int a;    
 	
+	
 	printf("enter the number:");    
 	scanf("%d",&number);    
-    	a=number;    
+	
+	
+	
+    	a=number;  
+		  
 	while(number>0){    
  			r=number%10;    
         	sum=sum+(r*r*r);    

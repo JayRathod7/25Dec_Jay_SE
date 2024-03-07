@@ -1,17 +1,22 @@
 #include<stdio.h>
 main(){
 	int fact  = 1;
-	int number;
+	int number[5];
+	int i;
 	
-	for(int i=1;i<=5;i++){
+	for(int i=0;i<5;i++){
 		printf("Enter Number:");
-		scanf("%d",&number);
-		
-		for(int j=1;j<=number;j++){
-			fact = fact*j;
+		scanf("%d",&number[i]);
+}
+
+
+	for(int i=0;i<5;i++){
+		fact = 1;
+		for(number[i];number[i]>=1;number[i]--){
+			fact = fact*number[i];
 		}
 		
 		printf("Factorial Number is:%d\n",fact);
-		fact = 1;
+		
 	}
 }
