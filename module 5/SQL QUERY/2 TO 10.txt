@@ -1,0 +1,116 @@
+Q2).Create table given below: Employee and IncentiveTable
+
+Employee Table:
+ 
+    CREATE TABLE Employee(
+    Employee_id int AUTO_INCREMENT PRIMARY KEY,
+    First_name varchar(50)NOT NULL,
+    Last_name varchar(50)NOT NULL,
+    Salary int NOT NULL,
+    Joining_Date datetime NOT NULL,
+    Departmenet varchar(50) NOT NULL
+);
+
+insert into employee(First_name,Last_name,Salary,Joining_Date,Departmenet)
+	values('Michael','Clarke',8000000,'2013-01-01 12:00:00','Insurance'),
+          ('Roy','Thomas',7000000,'2013-02-01 12:00:00','Banking'),
+          ('Tom','Jose',6000000,'2013-02-01 12:00:00','Insurance'),
+          ('Jerry','Pinto',6500000,'2013-02-01 12:00:00','Insurance'),
+          ('Phillip','Mathew',7500000,'2013-01-01 12:00:00','Services'),
+          ('TestName1','123',6500000,'2013-01-01 12:00:00','Services'),
+          ('TestName2','abc',6000000,'2013-02-01 12:00:00','Insurance');4
+
+
+Incentive Table:
+
+create table incentive(
+    employee_ref_id int NOT NULL,
+    incentive_date date NOT NULL,
+    incentive_amount int NOT NULL,
+    FOREIGN KEY(employee_ref_id) REFERENCES employee(Employee_id)
+    );
+
+insert into incentive(employee_ref_id,incentive_date,incentive_amount)
+	values(1,'2013-02-01',5000),
+   	      (2,'2013-02-01',3000),
+              (3,'2013-02-01',4000),
+              (1,'2013-01-01',4500),
+              (2,'2013-01-01',3500);
+
+
+====================================================================================
+3. Get First_Name from employee table using Tom name “Employee Name”.
+
+>>>>>>>  SELECT First_name AS Employe_name FROM employee;
+
+======================================================================================
+4. Get FIRST_NAME, Joining Date, and Salary from employee table
+
+>>>>>>>  SELECT First_name, Joining_Date,Salary FROM employee;
+
+=====================================================================================
+5. Get all employee details from the employee table order by First_Name
+
+>>>>>> SELECT * FROM employee ORDER BY First_name; //assending
+>>>>>> SELECT * FROM employee ORDER BY Salary DESC; //salary desanding
+
+======================================================================================
+6. Get employee details from employee table whose first name contains ‘J’.
+
+>>>>>> SELECT * FROM employee WHERE First_name LIKE 'j%';
+
+=======================================================================================
+
+7. Get department wise maximum salary from employee table order by salary ascending?
+
+>>>>>> SELECT*, MAX(Salary) FROM employee GROUP BY Departmenet;
+
+=======================================================================================
+8. Select first_name, incentive amount from employee and incentives table forthose employees who have incentives and incentive amount greater than3000
+
+>>>>>>   SELECT employee.First_name,incentive.incentive_amount 
+	    FROM employee JOIN incentive ON Employee_id = Employee_ref_id
+            WHERE incentive_amount > 3000;
+
+=======================================================================================
+9. Create After Insert trigger on Employee table which insert
+records inviewtable
+
+>>>>>>
+
+DELIMITER //
+
+CREATE TRIGGER logstable
+AFTER INSERT 
+ON employee
+FOR EACH ROW
+BEGIN 
+INSERT INTO employee_data_logs VALUES(null, NEW.Employee_id, NEW.First_name, NEW.Last_Name, NEW.Salary, New.Joining_date, NEW.Department, 'Record Inserted', now());
+END //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+USE asignment;
+DELIMITER // 
+
+CREATE PROCEDURE getdata()
+BEGIN
+
+SELECT * FROM student;
+END // 
+
+DELIMITER // 
+

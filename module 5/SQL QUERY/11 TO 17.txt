@@ -1,0 +1,65 @@
+====11.Create table given below: Salesperson and Customer====
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SALESPERSON TABLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>> CREATE TABLE SALSEPERSON (SNo int NOT NULL,
+                          SNAME varchar(50)NOT NULL,
+                          CITY VARCHAR(50)NOT NULL,
+                          COMM REAL NOT NULL,
+                          PRIMARY KEY(SNo)
+                          )
+
+>>>> INSERT INTO salseperson(SNo,SNAME,CITY,COMM)
+		VALUES(1001, 'Peel', 'London', .12),
+                      (1002, 'Serres', 'San Jose', .13),
+                      (1004, 'Motika', 'London', .11),
+                      (1007, 'Rafkin', 'Barcelona', .15),                     
+                      (1003, 'Axelrod', 'New York', .1);
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CUSTOMER TABLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>> CREATE TABLE Customer(CNM int NOT NULL,
+                     CNAME varchar(50)NOT NULL,
+                     CITY varchar(50) NOT NULL,
+                     RATING int NOT NULL,
+                     SNo int NOT NULL,
+                     PRIMARY KEY(CNM),
+                     FOREIGN KEY(SNo) REFERENCES salseperson(SNo)
+                     )
+
+>>>> INSERT INTO customer(CNM,CNAME,CITY,RATING,SNo) 
+                  VALUES(201,'Hoffman','London',100,1001),
+                        (202,'Giovanne','Roe',200,1003),
+                        (203,'Liu','San Jose',300,1002),
+                        (204,'Grass','Barcelona',100,1002),
+                        (206,'Clemens','London',300,1007),
+                        (207,'Pereira','roe',100,1004);
+
+======================================================================================
+
+14.Names and cities of all salespeople in London with commission above 0.12
+
+>>>> SELECT SNAME,CITY FROM salseperson WHERE CITY = 'London' AND COMM >= 0.12;
+
+=======================================================================================
+
+15.All salespeople either in Barcelona or in London
+
+>>>> SELECT * FROM salseperson WHERE CITY = 'barcelona' OR CITY = 'london'
+
+========================================================================================
+
+16.All salespeople with commission between 0.10 and 0.12.(Boundary valuesshould be excluded)
+
+>>>> SELECT * FROM salseperson WHERE COMM BETWEEN 0.10 AND 0.12;
+
+========================================================================================
+
+17.All customers excluding those with rating <= 100 unless they are
+locatedinRome
+
+>>>> SELECT * FROM customer WHERE RATING <=100 OR CITY = 'ROE';
+
+
+
+
