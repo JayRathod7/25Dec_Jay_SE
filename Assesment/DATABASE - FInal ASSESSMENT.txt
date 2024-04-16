@@ -1,0 +1,107 @@
+=======================================================================================
+                                   ASSESSMENT - DATABASE 
+=======================================================================================
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  CREATE CITY TABLE  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>    CREATE TABLE city (id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                  city_name varchar(50) NOT NULL,
+                  Latitude  REAL NOT NULL,
+                  longitude REAL NOT NULL,
+                  country_id int NOT NULL,
+                  FOREIGN KEY(country_id) REFERENCES country(id)
+                  )
+
+>>>>    INSERT INTO city (city_name,Latitude,longitude,Country_id)
+	        	VALUES('Berlin',52.520008,13.404954,1),
+                           ('Belgrade',44.787197,13.404954,2),
+                           ('Zagreb',45.815399,13.404954,3),
+                           ('New York',40.730610,13.404954,4),
+                           ('Los Angeles',34.052235,13.404954,4),
+                           ('Warsaw',52.237049,13.404954,5);
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  CREATE CUSTOMER TABLE  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>    CREATE TABLE customer_assesment(
+    			cu_id INT PRIMARY KEY AUTO_INCREMENT,
+   			 customer_name VARCHAR(20) NOT NULL,
+    			city_id INT NOT NULL,
+    			customer_address VARCHAR(30) NOT NULL,
+    			next_call_date DATE NOT NULL,
+    			ts_insertes DATETIME NOT NULL,
+   			 FOREIGN KEY(city_id) REFERENCES city(id)
+)
+
+
+>>>>    INSERT INTO customer_assesment(customer_name, city_id, customer_address, next_call_date, ts_insertes) 
+				VALUES('Jewelry', 4, 'Long Street 120', '2020-01-21', '2020-01-09 14:01:20'),
+					('Bakery', 1, 'Kurfurstedamm 25', '2020-02-21', '2020-01-09 17:52:15'),
+					('Cafe', 1, 'Tauentzienstrabe 44', '2020-01-21', '2020-01-10 08:02:49'),
+					('Restaurant', 3, 'Ulica lipa 15', '2020-01-21', '2020-01-10 09:20:21');
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  CREATE COUNTRY TABLE  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>  CREATE TABLE country(
+              id INT PRIMARY KEY AUTO_INCREMENT, 
+              country_name VARCHAR(20) NOT NULL,
+              country_name_eng VARCHAR(20) NOT NULL,
+              country_code VARCHAR(20) NOT NULL
+              );
+
+
+>>>>  INSERT INTO country(country_name, country_name_eng, country_code) VALUES
+                         ('Deutschland', 'Germany', 'DEU'),
+                         ('Srbija', 'Serbia', 'SRB'),
+                         ('Hrvatska', 'Croatia', 'HRV'),
+			 ('United States of America', 'United States of America', 'USA'),
+		         ('Polska', 'Poland', 'POL'),
+			 ('Espana', 'Spain', 'ESP'),
+			 ('Rossiya', 'Russia', 'RUS');
+
+
+=======================================================================================
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+ 
+Task : 1 (join multiple tables using left join)
+
+>>>>> SELECT country.country_name_eng,
+             customer_assesment.customer_name,
+             city.city_name 
+             FROM country LEFT JOIN 
+             customer_assesment ON country.id = customer_assesment.cu_id 
+             LEFT JOIN city ON 
+             city.id = customer_assesment.city_id;
+
+
+
+TASK : 2  (join multiple tables using both left and inner join)
+
+>>>>>   SELECT country.country_name,
+	       customer_assesment.customer_name
+               FROM country INNER JOIN 
+               city ON country.id = city.country_id
+               LEFT JOIN customer_assesment ON
+               country.id = customer_assesment.cu_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
