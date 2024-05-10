@@ -1,0 +1,70 @@
+      
+/* main heading css */
+h1 {
+    background-color: rgb(75, 75, 185);
+    color: red;
+    border-radius: 6px;
+    text-align: center;
+    padding: 6px;
+}
+
+.main_box{
+    background-color: aquamarine;
+}
+
+/* ALL HEADING CSS */
+.heading{
+    color: crimson;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+/*  LOGINE ID AND PASSWORD BOX */
+.input_box1{
+        text-align: center;
+}
+
+/* USER DETAIL AND ACCOUNT DETAIL INPUT BOX */
+.main_input_box , .main_input_box2 {
+    display: flex;
+    justify-content: center;
+}
+
+/* CSS FOR ALL LABEL IN HTML FILE */
+label{
+    display: inline-block;
+    text-align: right;
+    width: 140px;
+    margin: 0 8px 10px 0;
+    font-weight: 900;
+    color: blue;
+}
+ /* CSS FOR * SYMBOLE REQUERE */
+b{
+    color: red;
+}
+
+/* CSS FOR LAST DECLARATION TEARM AND CONDITIONS */
+p{
+    margin: 10px;
+    color: blue;
+}
+
+/* CSS FOR SUBMIT AND RESET BUTTON */
+.buttons{
+ text-align: center;
+ padding-bottom: 20px; 
+}
+
+input[type = submit],[type = reset]{
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: 500;
+    padding-left: 20px;
+    padding-bottom:6px;
+    padding-top: 6px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border: 1px rgb(43, 43, 190),solid;
+}
+
