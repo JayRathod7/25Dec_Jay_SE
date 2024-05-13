@@ -1,0 +1,47 @@
+8) in how many ways can a CSS be integrated as a web page?
+
+thre are three types of CSS which are given Below:
+1)inline CSS
+2)internal CSS
+3)External CSS
+
+1) inline CSS
+>> inline css is a method of applying styling directly to individual HTML elements using the style attribute.
+ 
+ <><><><><><><><><>EX.<><><><><><><><
+ <p style = "color:black">Example</p>
+
+2)internal CSS
+>> internal CSS is define within the HTML document'<style>elements.
+   The CSS rule set should be within the HTML file in the head section.
+
+   <><><><><><>Ex.<><><><><><>
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>Internal CSS</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+Example
+</body>
+</html>
+
+3)External CSS 
+>> CSS property is written in a separate file with a .css extension and should be linked to the HTML document using LINL tag.
+
+Ex.
+<head>
+<title>Example</title>
+<link rel = "stylesheet" href = "style.css">
+</head>
+
+style.css file
+
+body {
+    background-color: powderblue;
+}

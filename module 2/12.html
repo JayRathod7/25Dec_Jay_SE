@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Pseudo-class Example</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        margin: 20px;
+        float: left;
+        transition: background-color 300ms ease-in-out;
+      }
+
+      .box:hover {
+        background-color: red;
+      }
+
+      .box:active {
+        background-color: green;
+        transform: scale(0.9);
+      }
+
+      .box:focus {
+        outline: 2px solid yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Hover, click, and focus on me!</div>
+  </body>
+</html>
